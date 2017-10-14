@@ -1,6 +1,6 @@
 const router = express.Router()
 const express = require('express')
-consr { User } = require('../db/schema')
+const { User } = require('../db/schema')
 
 router.get('/', async (req, res) => {
     try {
@@ -17,5 +17,15 @@ router.get('/:id', async (req, res) => {
     } catch (err) {
         res.send(err)
     }
-}
 })
+router.post('/', async (req, res) => {
+    try {
+        const NewUser = new User(req.body.user)
+        const saved = await NewUser.save()
+        res.json(saved)
+     } catch (err) {
+         res.send(err)
+     }
+    
+})
+module.exports = router
