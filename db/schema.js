@@ -9,15 +9,32 @@ const userSchema = mongoose.Schema({
     })
 const routineSchema = mongoose.Schema({
     title: {
-        type: String,
+        bodyPart: String,
+        name: String,
+
     },
 })
 const exerciseSchema = mongoose.Schema({
-    
+    title: {
+        exerciseOne: String,
+        repGoal: Number,
+        actualReps: Number,
+        exerciseTwo: String,
+        repGoal: Number,
+        actualReps: Number,
+        exerciseThree: String,
+        repGoal: Number,
+        actualReps: Number,
+        exercisFour: String,
+        repGoal: Number,
+        actualReps: Number
+
+    }
+
 })
 
 
 
 module.exports = {
-    User, Exercise
+    User, Routine, Exercise
 }
