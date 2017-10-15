@@ -1,11 +1,14 @@
 require("dotenv").config();
 const express = require('express');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const app = express();
+const bodyParser = require('body-parser');
+const UsersController = require('./routes/UsersController');
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI);
 
+const app = express()
+
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true})
+const connection = mongoose.connection
 
 
 const connection = mongoose.connection;
@@ -26,5 +29,5 @@ app.get('/', (req,res) => {
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log("Magic happening on port " + PORT);
+  console.log("Magic happening on port ", PORT);
 })

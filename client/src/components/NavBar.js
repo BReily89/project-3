@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
@@ -14,4 +15,4 @@ const NavBar = () => {
 }
 
 
-export default NavBar;
+export default NavBar
