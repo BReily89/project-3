@@ -20,6 +20,15 @@ router.patch('/:id', async (req, res) => {
     const routine = users.routines.is(req.params.id)
     routine.title = updatedRoutine.title
     routine.name = updatedRoutine.name  
+    const save = await user.save()
+    res.json(saved) 
+})
+//DELETE 
+router.delete('id/:' , async (req, res) => {
+    const user = await User.findbyId(req.params.userId)
+    user.routines.id(req.params.id).remove()
+    const saved = await user.save()
+    res.json(saved)
 })
 
 class RoutineController extends Component {
