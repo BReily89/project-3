@@ -61,36 +61,44 @@ const ronniesexerciseLibrary = new Exercises({
     exercisFour: 'reverse leg curl',
     repGoal: 8,
     actualReps: ''
-})onst jay = new User({
-    userName: 'Jay Cutler',
-    password:'Roids',
-    height: '5ft  10in',
-    weight: 290,
-    personalRecord: '600lbs bench press'
+
+})
+const daruis = new User({
+    userName: 'Darius Charles',
+    password:'Juice',
+    height: '5ft  8in',
+    weight: 260,
+    personalRecord: '400lbs military press'
 
 
 }) 
 
 
-const jaysRoutines = new Routine({
-    bodyPart:'Back & Biceps',
-    name:'Big ole Biceps'
+const dariusRoutines = new Routine({
+    bodyPart:'Shoulders',
+    name:'shoulder shelling'
     
     
 })
 //Darius Charles
 const dariussExerciseLibrary = new Exercises({
-    exerciseOne: 'standing barbel curl',
+    exerciseOne: 'seated dumbell press',
     repGoal: 10,
     actualReps: '',
-    exerciseTwo: 'preacher curl',
+    exerciseTwo: 'military press',
     repGoal: 8,
     actualReps: '',
-    exerciseThree: 'concentration curl',
+    exerciseThree: 'reverse pec-deck',
     repGoal: 6,
     actualReps: '',
-    exercisFour: 'reverse curl',
+    exercisFour: 'shrugs',
     repGoal: 8,
     actualReps: ''
+})
+
+User.remove({})
+.then(() => jay.save())
+.then(() => console.log('start juicin')())
+.then(() => mongoose.connection.close())
 
 
