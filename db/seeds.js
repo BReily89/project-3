@@ -44,11 +44,42 @@ const ronnie = new User({
     weight: 310,
     personalRecord: '1000lbs squat'
 })
-const jaysRoutines = new Routine({
+const rommiesRoutines = new Routine({
     bodyPart:'LEG DAY',
     name:'Tree Trunk Legs'
 })
-const jaysExerciseLibrary = new Exercises({
+const ronniesexerciseLibrary = new Exercises({
+    exerciseOne: 'Squat',
+    repGoal: 15,
+    actualReps: '',
+    exerciseTwo: 'Hack-squat',
+    repGoal: 8,
+    actualReps: '',
+    exerciseThree: 'dead-lifts',
+    repGoal: 6,
+    actualReps: '',
+    exercisFour: 'reverse leg curl',
+    repGoal: 8,
+    actualReps: ''
+})onst jay = new User({
+    userName: 'Jay Cutler',
+    password:'Roids',
+    height: '5ft  10in',
+    weight: 290,
+    personalRecord: '600lbs bench press'
+
+
+}) 
+
+
+const jaysRoutines = new Routine({
+    bodyPart:'Back & Biceps',
+    name:'Big ole Biceps'
+    
+    
+})
+//Darius Charles
+const dariussExerciseLibrary = new Exercises({
     exerciseOne: 'standing barbel curl',
     repGoal: 10,
     actualReps: '',
@@ -61,5 +92,5 @@ const jaysExerciseLibrary = new Exercises({
     exercisFour: 'reverse curl',
     repGoal: 8,
     actualReps: ''
-})
+
 
