@@ -1,42 +1,29 @@
 const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema({
-    title: {
-        userName: String,
-        password: String,
-        height: String,
-        weight: Number,
-        personalRecords: String
-    },
-    description: {type: String, default: 'New user'},
-    createdAt: {type: Date, default: Date.now}
+    userName: String,
+    password: String,
+    height: String,
+    weight: Number,
+    personalRecords: String,
+    description: { type: String, default: 'New user' },
+    createdAt: { type: Date, default: Date.now }
 })
-const routineSchema = mongoose.Schema({
-    title: {
-        bodyPart: String,
-        name: String,
-
-    },
-})
-
 const exerciseSchema = mongoose.Schema({
-    title: {
-        exerciseOne: String,
-        repGoal: Number,
-        actualReps: '',
-        exerciseTwo: String,
-        repGoal: Number,
-        actualReps: '',
-        exerciseThree: String,
-        repGoal: Number,
-        actualReps: '',
-        exercisFour: String,
-        repGoal: Number,
-        actualReps: ''
-
-    }
-
+    name: String,
+    reps: Number,
+    actualReps: Number
 })
+const ExerciseLibrary1 = new ExerciseModel({name: 'b', reps: 10, actualReps:8})
+const ExerciseLibrary2 = new ExerciseModel({name : 'c', reps: 12, actualReps: 8})
+const ExerciseLibrary3 = new ExerciseModel({name: 'd', reps: 15, actualReps: 4})
+const routineSchema = mongoose.Schema({
+    bodyPart: String,
+    name: String,
+    exercises: [exerciseSchema]
+})
+
+
 const User = mongoose.model('User', userSchema)
 const Routine = mongoose.model('Routine', routineSchema)
 const Exercise = mongoose.model('Exercises', exerciseSchema)
