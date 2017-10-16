@@ -12,7 +12,7 @@ class Routines extends Component {
         }
     }
     async componentWillMount () {
-        const { userId } = this.props.match,params
+        const { userId } = this.props.match.params
         const res = await axios.get(`/api/users/${userId}`)
         this.setState({user: res.data})
     }

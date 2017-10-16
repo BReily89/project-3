@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import React from 'react'
-import Routine from './Routine'
+import Routine from './Routines'
 
-const ExerciseLibrary
-
-class componentName extends Component {
+// const ExerciseLibrary = (props) => {
+//     return (
+//        {props.routine.map((routine) => 
+//     return ())}
+//     )
+// }
+class ExerciseLibrary extends Component {
     render() {
         return (
             <div>
@@ -14,4 +17,4 @@ class componentName extends Component {
     }
 }
 
-export default componentName;
+export default ExerciseLibrary;

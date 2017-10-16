@@ -5,7 +5,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import HomePage from './components/home/HomePage'
 import SignUp from './components/login/SignUp'
 import LogInPage from './components/login/LogInPage'
-{/*import NavBar from './components/NavBar'*/}
+import Routines from './components/exercises/Routines'
+import ExerciseLibrary from './components/exercises/ExerciseLibrary'
+import NavBar from './components/NavBar'
 
  
 
@@ -14,12 +16,12 @@ class App extends Component {
     return (
       <Router> 
         <div>
-        {/*  <NavBar /> */}
+         <NavBar /> 
           <Switch>
 
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LogInPage} />
-           {/*} <Route exact path="/routine/:userId" component={RoutinePage} /> */}
+            <Route exact path="/routines/:userId" component={Routines} /> 
           </Switch>
         </div>
       </Router>
