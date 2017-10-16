@@ -33,13 +33,24 @@ class SignUp extends Component {
         return (
             <div>
                 <h1>Sign Up</h1>
-                <form onSubmit={this.handleSubmit}/>
-            </div>
+                <form onSubmit={this.handleSubmit}>
+            <div>
             <label htmlFor="userName">User Name</label>
             <input
             onChange={this.handleChange} name="userName"
             type="text" value={this.state.newUser.userName}
-        );
+            />
+            </div>
+            <div>
+                <label htmlFor="password">Password</label>
+                <input onChange={this.handleChange}
+                value={this.state.newUser.password}
+                name="password" type="text" />
+            </div>
+            <button>Sign Up</button>
+            </form>
+            </div>
+        )
     }
 }
 

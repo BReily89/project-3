@@ -14,4 +14,52 @@ const jay = new User({
     personalRecord: '600lbs bench press'
 
 
+}) 
+
+
+const jaysRoutines = new Routine({
+    bodyPart:'Back & Biceps',
+    name:'Big ole Biceps'
+    
+    
 })
+const jaysExerciseLibrary = new Exercises({
+    exerciseOne: 'standing barbel curl',
+    repGoal: 10,
+    actualReps: '',
+    exerciseTwo: 'preacher curl',
+    repGoal: 8,
+    actualReps: '',
+    exerciseThree: 'concentration curl',
+    repGoal: 6,
+    actualReps: '',
+    exercisFour: 'reverse curl',
+    repGoal: 8,
+    actualReps: ''
+})
+const ronnie = new User({
+    userName: 'Ronnie Coleman',
+    password:'roid-rage',
+    height: '6ft  2in',
+    weight: 310,
+    personalRecord: '1000lbs squat'
+})
+const jaysRoutines = new Routine({
+    bodyPart:'LEG DAY',
+    name:'Tree Trunk Legs'
+})
+const jaysExerciseLibrary = new Exercises({
+    exerciseOne: 'standing barbel curl',
+    repGoal: 10,
+    actualReps: '',
+    exerciseTwo: 'preacher curl',
+    repGoal: 8,
+    actualReps: '',
+    exerciseThree: 'concentration curl',
+    repGoal: 6,
+    actualReps: '',
+    exercisFour: 'reverse curl',
+    repGoal: 8,
+    actualReps: ''
+})
+

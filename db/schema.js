@@ -15,20 +15,21 @@ const routineSchema = mongoose.Schema({
 
     },
 })
+
 const exerciseSchema = mongoose.Schema({
     title: {
         exerciseOne: String,
         repGoal: Number,
-        actualReps: Number,
+        actualReps: '',
         exerciseTwo: String,
         repGoal: Number,
-        actualReps: Number,
+        actualReps: '',
         exerciseThree: String,
         repGoal: Number,
-        actualReps: Number,
+        actualReps: '',
         exercisFour: String,
         repGoal: Number,
-        actualReps: Number
+        actualReps: ''
 
     }
 
