@@ -1,6 +1,6 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
-mongoose.connect(process.env.MONGO_URI, {useMongoClient: true})
+mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true})
 mongoose.Promise = global.Promise
 
 const {User, Routine, Exercise} = require('./schema')
@@ -16,14 +16,13 @@ const jay = new User({
 
 }) 
 
-
 const jaysRoutines = new Routine({
     bodyPart:'Back & Biceps',
     name:'Big ole Biceps'
     
     
 })
-const jaysExerciseLibrary = new Exercises({
+const jaysExerciseLibrary = new Exercise({
     exerciseOne: 'standing barbel curl',
     repGoal: 10,
     actualReps: '',
@@ -37,6 +36,10 @@ const jaysExerciseLibrary = new Exercises({
     repGoal: 8,
     actualReps: ''
 })
+    
+ 
+    
+
 const ronnie = new User({
     userName: 'Ronnie Coleman',
     password:'roid-rage',
@@ -48,7 +51,7 @@ const rommiesRoutines = new Routine({
     bodyPart:'LEG DAY',
     name:'Tree Trunk Legs'
 })
-const ronniesexerciseLibrary = new Exercises({
+const ronniesexerciseLibrary = new Exercise({
     exerciseOne: 'Squat',
     repGoal: 15,
     actualReps: '',
@@ -63,7 +66,7 @@ const ronniesexerciseLibrary = new Exercises({
     actualReps: ''
 
 })
-const daruis = new User({
+const darius = new User({
     userName: 'Darius Charles',
     password:'Juice',
     height: '5ft  8in',
@@ -81,7 +84,7 @@ const dariusRoutines = new Routine({
     
 })
 //Darius Charles
-const dariussExerciseLibrary = new Exercises({
+const dariussExerciseLibrary = new Exercise({
     exerciseOne: 'seated dumbell press',
     repGoal: 10,
     actualReps: '',
@@ -98,6 +101,8 @@ const dariussExerciseLibrary = new Exercises({
 
 User.remove({})
 .then(() => jay.save())
+.then(() => ronnie.save())
+.then(() => darius.save())
 .then(() => console.log('start juicin')())
 .then(() => mongoose.connection.close())
 

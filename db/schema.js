@@ -1,13 +1,16 @@
 const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema({
-    
+    title: {
         userName: String,
         password: String,
         height: String,
         weight: Number,
         personalRecords: String
-    })
+    },
+    description: {type: String, default: 'New user'},
+    createdAt: {type: Date, default: Date.now}
+})
 const routineSchema = mongoose.Schema({
     title: {
         bodyPart: String,
@@ -34,6 +37,9 @@ const exerciseSchema = mongoose.Schema({
     }
 
 })
+const User = mongoose.model('User', userSchema)
+const Routine = mongoose.model('Routine', routineSchema)
+const Exercise = mongoose.model('Exercises', exerciseSchema)
 
 
 

@@ -24,7 +24,7 @@ class LogInPage extends Component {
         return (
             <div>
                 <h1>Log in</h1>
-                <h3>Selece an existing user to view their workouts</h3>
+                <h3>Select an existing user to view their workouts</h3>
                 {this.state.users.map(user => {
                     return (<Link key={user._id} to={`/routines/${user._id}`}>{user.userName}</Link>)
                 })}
