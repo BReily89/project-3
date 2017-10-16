@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true})
 mongoose.Promise = global.Promise
 
-const {User, Routine, Exercise} = require('./schema')
+const {User, Routines, Exercise} = require('./schema')
 
 
 const jay = new User({
@@ -70,17 +70,18 @@ const exerciseLibrary3 = new Exercise({
     actualReps: '',
     exercisFour: 'shrugs',
     repGoal: 8,
-    actualReps: ''
+    actualReps: '',
 })
-const Routine1 = new Routine({
+
+const Routine1 = new Routines({
     bodyPart: 'Biceps',
     name:'arm blaster'
 })
-const Routine2 = new Routine({
+const Routine2 = new Routines({
     bodyPart:'LEG DAY',
     name:'Tree Trunk Legs'
 })
-const Routine3 = new Routine({
+const Routine3 = new Routines({
     bodyPart:'Shoulders',
     name:'shoulder shelling'
 
@@ -90,17 +91,19 @@ User.remove({})
 .then(() => jay.save())
 .then(() => ronnie.save())
 .then(() => darius.save())
-.then(() => console.log('start juicin')())
-.catch((err) => {
-    console.log(err)
-})
-Routine.remove({})
+.then(() => console.log('start juicin')
+// .catch((err) => {
+//     console.log(err)
+// }),
+,
+Routines.remove({})
 .then(() => Routine1.save())
 .then(() => Routine2.save())
 .then(() => Routine3.save())
+.then(() =>console.log('synthol'))
 .catch((err) => {
     console.log(err)
 })
 .then(() => mongoose.connection.close())
 
-
+)
