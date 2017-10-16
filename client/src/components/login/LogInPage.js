@@ -8,14 +8,14 @@ class LogInPage extends Component {
         users: []
     }
 
-    componentsWillMount () {
+    componentsWillMount() {
         this.getAllUsers()
     }
 
     getAllUsers = async () => {
         try {
             const res = await axios.get('/api/users')
-            this.setState({users: res.data})
+            this.setState({ users: res.data })
         } catch (err) {
             console.log
         }
