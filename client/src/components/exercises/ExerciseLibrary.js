@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Routine from './Routines'
+import Routines from './Routines'
 
 // const ExerciseLibrary = (props) => {
 //     return (

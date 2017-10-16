@@ -15,14 +15,21 @@ const jay = new User({
 
 
 }) 
-
-const jaysRoutines = new Routine({
-    bodyPart:'Back & Biceps',
-    name:'Big ole Biceps'
-    
-    
+const ronnie = new User({
+    userName: 'Ronnie Coleman',
+    password:'roid-rage',
+    height: '6ft  2in',
+    weight: 310,
+    personalRecord: '1000lbs squat'
 })
-const jaysExerciseLibrary = new Exercise({
+const darius = new User({
+    userName: 'Darius Charles',
+    password:'Juice',
+    height: '5ft  8in',
+    weight: 260,
+    personalRecord: '400lbs military press'
+}) 
+const exerciseLibrary1 = new Exercise({
     exerciseOne: 'standing barbel curl',
     repGoal: 10,
     actualReps: '',
@@ -36,22 +43,7 @@ const jaysExerciseLibrary = new Exercise({
     repGoal: 8,
     actualReps: ''
 })
-    
- 
-    
-
-const ronnie = new User({
-    userName: 'Ronnie Coleman',
-    password:'roid-rage',
-    height: '6ft  2in',
-    weight: 310,
-    personalRecord: '1000lbs squat'
-})
-const rommiesRoutines = new Routine({
-    bodyPart:'LEG DAY',
-    name:'Tree Trunk Legs'
-})
-const ronniesexerciseLibrary = new Exercise({
+const exerciseLibrary2 = new Exercise({
     exerciseOne: 'Squat',
     repGoal: 15,
     actualReps: '',
@@ -66,25 +58,7 @@ const ronniesexerciseLibrary = new Exercise({
     actualReps: ''
 
 })
-const darius = new User({
-    userName: 'Darius Charles',
-    password:'Juice',
-    height: '5ft  8in',
-    weight: 260,
-    personalRecord: '400lbs military press'
-
-
-}) 
-
-
-const dariusRoutines = new Routine({
-    bodyPart:'Shoulders',
-    name:'shoulder shelling'
-    
-    
-})
-//Darius Charles
-const dariussExerciseLibrary = new Exercise({
+const exerciseLibrary3 = new Exercise({
     exerciseOne: 'seated dumbell press',
     repGoal: 10,
     actualReps: '',
@@ -98,12 +72,35 @@ const dariussExerciseLibrary = new Exercise({
     repGoal: 8,
     actualReps: ''
 })
+const Routine1 = new Routine({
+    bodyPart: 'Biceps',
+    name:'arm blaster'
+})
+const Routine2 = new Routine({
+    bodyPart:'LEG DAY',
+    name:'Tree Trunk Legs'
+})
+const Routine3 = new Routine({
+    bodyPart:'Shoulders',
+    name:'shoulder shelling'
+
+})
 
 User.remove({})
 .then(() => jay.save())
 .then(() => ronnie.save())
 .then(() => darius.save())
 .then(() => console.log('start juicin')())
+.catch((err) => {
+    console.log(err)
+})
+Routine.remove({})
+.then(() => Routine1.save())
+.then(() => Routine2.save())
+.then(() => Routine3.save())
+.catch((err) => {
+    console.log(err)
+})
 .then(() => mongoose.connection.close())
 
 
