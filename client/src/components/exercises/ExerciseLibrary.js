@@ -36,14 +36,14 @@ handleChange = (event, routinesId) => {
     const { userId } =this.props.match.params
     const id = routinesId
 
-UpdateRoutine = async (routineId) => {
+updateRoutines = async (routinesId) => {
     const { userId } = this.props.params
     const id = routinesId
 
     const clonedUser = { ...this.state.user}
     const idea = clonedUser.ideas.find(i => i._id === routinesId)
     const res = await axios.patch(`api/users/${userId}/ideas/${id}`, {
-        routines: routines
+       // routine: routine
     })
     this.setState({user: res.data})
 }
