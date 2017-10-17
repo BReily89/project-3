@@ -1,34 +1,39 @@
 import React, { Component } from 'react';
 
 const Exercise = (props) => {
-    const deleteRoutines = () => {
-        props.deleteRoutines(props._id)
-    }
-    const handleChange = (event) => {
-    props.handleChange(event, props._id)
-    }
-    const updateRoutines = () => {
-        props.updateRoutines(props._id)
-    }
+    //     const deleteRoutines = () => {
+    //         props.deleteRoutines(props._id)
+    //     }
+    //     const handleChange = (event) => {
+    //     props.handleChange(event, props._id)
+    //     }
+    //     const updateRoutines = () => {
+    //         props.updateRoutines(props._id)
+    //     }
 
-    return ( 
+    return (
         <div>
-  {/* change on blur*/  }
-   <input onBlur={updateRoutines} onChange={handleChange} name="title" value={props.routines} />
+            {props.exercises.map((exercise) => {
+                return (
+                    <div>{exercise.nameOne}</div>
+                )
+            })}
+            {/* change on blur*/}
+            {/* <input onBlur={updateRoutines} onChange={handleChange} name="title" value={props.routines} />
     <textarea onBlur={updateRoutines} onChange={handleChange} name="description" value={props.description} />
-    <button onClick={deleteRoutines}>Delete Routine</button>
-    </div>
+    <button onClick={deleteRoutines}>Delete Routine</button> */}
+        </div>
     )
-}
+    //}
 
-// class Exercise extends Component {
-//     render() {
-//         return (
-//             <div>
-                
-//             </div>
-//         );
-//     }
-// }
+    // class Exercise extends Component {
+    //     render() {
+    //         return (
+    //             <div>
+
+    //             </div>
+    //         );
+    //     }
+}
 
 export default Exercise; 

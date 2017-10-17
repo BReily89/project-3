@@ -1,27 +1,22 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Routines from './Routines'
+import Exercise from './Exercise'
+
 
 
 
 class ExerciseLibrary extends Component {
     state = {
-        users: {
-            userName: '',
-            password: '',
-            height: '',
-            weight: '',
-            personalRecords: ''
-
-        }
-        
-    }
+            exercises: []        
     
+}
     async componentWillMount() {
-        const { userId } = this.props.match.params
-        const res = await axios.get(`api/users/${userId}`)
-        //console.log(res.data)
-        this.setState({ user: res.data })
+        const exerciseId = this.props.match.params.id
+        const res = await axios.get(`/api/routines/${exerciseId}`)
+        this.setState({ exercises: res.data })
+        console.log(res.data)
+        
     }
 
     createNewRoutines = async () => {
@@ -52,15 +47,15 @@ class ExerciseLibrary extends Component {
         this.setState({ user: res.data })
 
         
-    }
+   }
 
 
   render() {
      return (
     <div>
-    <h1>{this.state.user.userName}'s Exercise Library</h1>
+    <h1>{}'s Exercise Library</h1>
     <button onClick={this.createNewRoutine}>New Routine</button>
-        <Routines exercises={this.state.user.exercises}
+        <Exercise exercises={this.state.exercises} 
         handleChange={this.handleChange}
         deleteRoutine={this.deleteRoutine}
         updateRoutine={this.updateRoutine}/>

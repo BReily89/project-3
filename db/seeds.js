@@ -32,50 +32,54 @@ const darius = new User({
 //const ArmBlaster = new Exercise({nameOne:' standing barbell curl' ,repGoal: 10, actualReps: ''})
 const armBlaster = new Exercise({
     nameOne: 'standing barbel curl',
-    repGoal: 10,
-    actualReps: '',
+    repGoalOne: 10,
+    actualRepsOne: '',
     nameTwo: 'preacher curl',
-    repGoal: 8,
-    actualReps: '',
+    repGoalTwo: 8,
+    actualRepsTwo: '',
     nameThree: 'concentration curl',
-    repGoal: 6,
-    actualReps: '',
+    repGoalThree: 6,
+    actualRepsThree: '',
     nameFour: 'reverse curl',
-    repGoal: 8,
-    actualReps: ''
+    repGoalFour: 8,
+    actualRepsFour: ''
 })
 const legDay = new Exercise({
     nameOne: 'Squat',
-    repGoal: 15,
-    actualReps: '',
+    repGoalOne: 15,
+    actualRepsOne: '',
     nameTwo: 'Hack-squat',
-    repGoal: 8,
-    actualReps: '',
+    repGoalTwo: 8,
+    actualRepsTwo: '',
     nameThree: 'dead-lifts',
-    repGoal: 6,
-    actualReps: '',
+    repGoalThree: 6,
+    actualRepsThree: '',
     nameFour: 'reverse leg curl',
-    repGoal: 8,
-    actualReps: ''
+    repGoalFour: 8,
+    actualRepsFour: ''
 
 })
 const shoulderShelling = new Exercise({
     nameOne: 'seated dumbell press',
-    repGoal: 10,
-    actualReps: '',
+    repGoalOne: 10,
+    actualRepsOne: '',
     nameTwo: 'military press',
-    repGoal: 8,
-    actualReps: '',
+    repGoalTwo: 8,
+    actualRepsTwo: '',
     nameThree: 'reverse pec-deck',
-    repGoal: 6,
-    actualReps: '',
+    repGoalThree: 6,
+    actualRepsThree: '',
     nameFour: 'shrugs',
-    repGoal: 8,
-    actualReps: '',
+    repGoalFour: 8,
+    actualRepsFour: '',
 })
-const Routines = new RoutineModel({ name: 'Shoulder Shelling', bodyPart: 'Shoulders' })
-const Routines = new RoutineModel({ name: 'Lead Leg Day', bodyPart: 'Legs'})
-const Routines = new RoutineModel({ name: 'Arm-Blaster' , bodyPArt:'biceps'})
+const Routine1 = new Routines({ 
+    name: 'Shoulder Shelling', 
+    bodyPart: 'Shoulders', 
+    exercise: [armBlaster, legDay, shoulderShelling]
+ })
+const Routine2 = new Routines({ name: 'Lead Leg Day', bodyPart: 'Legs'})
+const Routine3 = new Routines({ name: 'Arm-Blaster' , bodyPArt:'biceps'})
 // const Routine1 = new Routines({
 //     bodyPart: 'Biceps',
 //     name:'arm blaster'
@@ -107,10 +111,11 @@ Routines.remove({})
 .catch((err) => {
     console.log(err)
 }),
-Exercise.remove({})
-.then(() => armBlaster.save())
-.then(() => legDay.save())
-.then(() => shoulderShelling.save())
-.then(() => mongoose.connection.close())
+// Exercise.remove({})
+// .then(() => armBlaster.save())
+// .then(() => legDay.save())
+// .then(() => shoulderShelling.save())
+// .then(() => mongoose.connection.close())
 
+// )
 )

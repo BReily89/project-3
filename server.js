@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const UsersController = require('./routes/UsersController');
-
+const RoutinesController = require('./routes/RoutinesController')
 
 mongoose.Promise = global.Promise;
 
@@ -23,6 +23,7 @@ connection.on('error', (err) => {
 app.use(express.static(`${__dirname}/client/build/`));
 app.use(bodyParser.json());
 app.use('/api/users', UsersController)
+app.use('/api/routines', RoutinesController)
 app.get('/', (req,res) => {
 	res.sendFile(`${__dirname}/client/build/index.html`)
 })

@@ -9,18 +9,26 @@ const userSchema = mongoose.Schema({
     description: { type: String, default: 'New user' },
     createdAt: { type: Date, default: Date.now }
 })
+//refactor names to match seeds
 const exerciseSchema = mongoose.Schema({
-    name: String,
-    reps: Number,
-    actualReps: Number,
+    nameOne: String,
+    repGoalOne: Number,
+    actualRepsOne: Number,
+    nameTwo: String,
+    repGoalTwo: Number,
+    actualRepsTwo: Number,
+    NameThree: String,
+    repGoalThree: Number,
+    actualRepsThree: Number,
+    nameFour: String,
+
 
     
     
 })
 const routinesSchema = mongoose.Schema({
-    bodyPart: String,
     name: String,
-    
+    bodyPart: String,
     exercise: [exerciseSchema]
     
 })
