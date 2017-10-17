@@ -4,9 +4,9 @@ import Routines from './Routines'
 
 
 class ExerciseLibrary extends Component {
-    state={
+    state = {
         user: {
-            userName:'',
+            userName: '',
             password: '',
             height: '',
             weight: '',
@@ -14,48 +14,48 @@ class ExerciseLibrary extends Component {
 
         }
     }
-    async componentWillMount () {
+    async componentWillMount() {
         const { userId } = this.props.match.params
         const res = await axios.get(`api/users/${userId}`)
-        this.setState({user: res.data})
+        this.setState({ user: res.data })
     }
 
     createNewRoutines = async () => {
-const { userId } = this.props.match.params
-const res = await axios.post(`/api/users/${userId}/routines`)
-console.log(res.data)
-this.setState({user: res.data})
-}
-deleteRoutines = async (routinesId) => {
-    const { userId } = this.props.match.params
-    const id = routinesId
-    const res = await axios.delete(`/api/users/${userId}/routines/${id}`)
-    this.setState({user: res.data})
-}
-handleChange = (event, routinesId) => {
-    const { userId } =this.props.match.params
-    const id = routinesId
+        const { userId } = this.props.match.params
+        const res = await axios.post(`/api/users/${userId}/routines`)
+        console.log(res.data)
+        this.setState({ user: res.data })
+    }
+    deleteRoutines = async (routinesId) => {
+        const { userId } = this.props.match.params
+        const id = routinesId
+        const res = await axios.delete(`/api/users/${userId}/routines/${id}`)
+        this.setState({ user: res.data })
+    }
+    handleChange = (event, routinesId) => {
+        const { userId } = this.props.match.params
+        const id = routinesId
+    }
+    updateRoutines = async (routinesId) => {
+        const { userId } = this.props.params
+        const id = routinesId
 
-updateRoutines = async (routinesId) => {
-    const { userId } = this.props.params
-    const id = routinesId
-
-    const clonedUser = { ...this.state.user}
-    const idea = clonedUser.ideas.find(i => i._id === routinesId)
-    const res = await axios.patch(`api/users/${userId}/ideas/${id}`, {
-       // routine: routine
-    })
-    this.setState({user: res.data})
-}
-}
-
-    render() {
-        return (
-            <div>
-                <h1>Exercise Library</h1>
-            </div>
-        );
+        const clonedUser = { ...this.state.user }
+        const idea = clonedUser.ideas.find(i => i._id === routinesId)
+        const res = await axios.patch(`api/users/${userId}/ideas/${id}`, {
+            // routine: routine
+        })
+        this.setState({ user: res.data })
     }
 }
+
+//   render() {
+//      return (
+<div>
+    <h1>Exercise Library</h1>
+</div>
+//  );
+//  }
+//}
 
 export default ExerciseLibrary;
