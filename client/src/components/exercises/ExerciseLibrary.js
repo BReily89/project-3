@@ -3,9 +3,10 @@ import axios from 'axios'
 import Routines from './Routines'
 
 
+
 class ExerciseLibrary extends Component {
     state = {
-        user: {
+        users: {
             userName: '',
             password: '',
             height: '',
@@ -13,10 +14,13 @@ class ExerciseLibrary extends Component {
             personalRecords: ''
 
         }
+        
     }
+    
     async componentWillMount() {
         const { userId } = this.props.match.params
         const res = await axios.get(`api/users/${userId}`)
+        //console.log(res.data)
         this.setState({ user: res.data })
     }
 
@@ -43,19 +47,29 @@ class ExerciseLibrary extends Component {
         const clonedUser = { ...this.state.user }
         const idea = clonedUser.ideas.find(i => i._id === routinesId)
         const res = await axios.patch(`api/users/${userId}/ideas/${id}`, {
-            // routine: routine
+             //routines: routines
         })
         this.setState({ user: res.data })
+
+        
     }
+
+
+  render() {
+     return (
+    <div>
+    <h1>{this.state.user.userName}'s Exercise Library</h1>
+    <button onClick={this.createNewRoutine}>New Routine</button>
+        <Routines exercises={this.state.user.exercises}
+        handleChange={this.handleChange}
+        deleteRoutine={this.deleteRoutine}
+        updateRoutine={this.updateRoutine}/>
+</div>
+
+
+ );
+ }
 }
 
-//   render() {
-//      return (
-<div>
-    <h1>Exercise Library</h1>
-</div>
-//  );
-//  }
-//}
 
 export default ExerciseLibrary;

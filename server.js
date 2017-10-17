@@ -22,7 +22,7 @@ connection.on('error', (err) => {
 }); 
 app.use(express.static(`${__dirname}/client/build/`));
 app.use(bodyParser.json());
-
+app.use('/api/users', UsersController)
 app.get('/', (req,res) => {
 	res.sendFile(`${__dirname}/client/build/index.html`)
 })

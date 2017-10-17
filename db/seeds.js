@@ -29,63 +29,66 @@ const darius = new User({
     weight: 260,
     personalRecord: '400lbs military press'
 }) 
-const exerciseLibrary1 = new Exercise({
-    exerciseOne: 'standing barbel curl',
+//const ArmBlaster = new Exercise({nameOne:' standing barbell curl' ,repGoal: 10, actualReps: ''})
+const armBlaster = new Exercise({
+    nameOne: 'standing barbel curl',
     repGoal: 10,
     actualReps: '',
-    exerciseTwo: 'preacher curl',
+    nameTwo: 'preacher curl',
     repGoal: 8,
     actualReps: '',
-    exerciseThree: 'concentration curl',
+    nameThree: 'concentration curl',
     repGoal: 6,
     actualReps: '',
-    exercisFour: 'reverse curl',
+    nameFour: 'reverse curl',
     repGoal: 8,
     actualReps: ''
 })
-const exerciseLibrary2 = new Exercise({
-    exerciseOne: 'Squat',
+const legDay = new Exercise({
+    nameOne: 'Squat',
     repGoal: 15,
     actualReps: '',
-    exerciseTwo: 'Hack-squat',
+    nameTwo: 'Hack-squat',
     repGoal: 8,
     actualReps: '',
-    exerciseThree: 'dead-lifts',
+    nameThree: 'dead-lifts',
     repGoal: 6,
     actualReps: '',
-    exercisFour: 'reverse leg curl',
+    nameFour: 'reverse leg curl',
     repGoal: 8,
     actualReps: ''
 
 })
-const exerciseLibrary3 = new Exercise({
-    exerciseOne: 'seated dumbell press',
+const shoulderShelling = new Exercise({
+    nameOne: 'seated dumbell press',
     repGoal: 10,
     actualReps: '',
-    exerciseTwo: 'military press',
+    nameTwo: 'military press',
     repGoal: 8,
     actualReps: '',
-    exerciseThree: 'reverse pec-deck',
+    nameThree: 'reverse pec-deck',
     repGoal: 6,
     actualReps: '',
-    exercisFour: 'shrugs',
+    nameFour: 'shrugs',
     repGoal: 8,
     actualReps: '',
 })
+const Routines = new RoutineModel({ name: 'Shoulder Shelling', bodyPart: 'Shoulders' })
+const Routines = new RoutineModel({ name: 'Lead Leg Day', bodyPart: 'Legs'})
+const Routines = new RoutineModel({ name: 'Arm-Blaster' , bodyPArt:'biceps'})
+// const Routine1 = new Routines({
+//     bodyPart: 'Biceps',
+//     name:'arm blaster'
+// })
+// const Routine2 = new Routines({
+//     bodyPart:'LEG DAY',
+//     name:'Tree Trunk Legs'
+// })
+// const Routine3 = new Routines({
+//     bodyPart:'Shoulders',
+//     name:'shoulder shelling'
 
-const Routine1 = new Routines({
-    bodyPart: 'Biceps',
-    name:'arm blaster'
-})
-const Routine2 = new Routines({
-    bodyPart:'LEG DAY',
-    name:'Tree Trunk Legs'
-})
-const Routine3 = new Routines({
-    bodyPart:'Shoulders',
-    name:'shoulder shelling'
-
-})
+//})
 
 User.remove({})
 .then(() => jay.save())
@@ -103,7 +106,11 @@ Routines.remove({})
 .then(() =>console.log('synthol'))
 .catch((err) => {
     console.log(err)
-})
+}),
+Exercise.remove({})
+.then(() => armBlaster.save())
+.then(() => legDay.save())
+.then(() => shoulderShelling.save())
 .then(() => mongoose.connection.close())
 
 )

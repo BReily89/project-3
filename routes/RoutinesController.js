@@ -1,25 +1,34 @@
 const express = require('express')
-const router = express.Router({merParams: True})
+const router = express.Router({mergeParams: True})
 const { User, Routine } = require('../db/schema')
 
-//import React, { Component } from 'react';
+import React, { Component } from 'react';
+
+router.get('/:id', async (req, res) => {
+    try {
+        const routines = await routines.find({})
+        res.json(routines)
+    }catch (err) {
+        res.send(err)
+    }
+})
 
 router.post('/', async (req, res) => {
-    const newRoutine = new newRoutine()
+    const newRoutines = new newRoutines()
 
     const user = await User.findbyId(req.params.userId)
 
-    user.ideas.push(newRoutine)
+    user.exercises.push(newRoutines)
     const saved = await user.save()
     res.json(saved)
 })
 
 router.patch('/:id', async (req, res) => {
-    const updaterRoutine = req.body.idea
+    const updateRoutines = req.body.idea
     const user = await User.findbyId(req.params.userId)
-    const routine = users.routines.is(req.params.id)
-    routine.title = updatedRoutine.title
-    routine.name = updatedRoutine.name  
+    const routines = users.routines.is(req.params.id)
+    routines.title = updatedRoutines.title
+    routines.name = updatedRoutines.name  
     const save = await user.save()
     res.json(saved) 
 })
@@ -31,14 +40,5 @@ router.delete('id/:' , async (req, res) => {
     res.json(saved)
 })
 
-class RoutineController extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
-}
 
 export default RoutineController;

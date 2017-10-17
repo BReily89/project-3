@@ -13,10 +13,10 @@ const Exercise = (props) => {
 
     return ( 
         <div>
-  /* change on blur*/  
+  {/* change on blur*/  }
    <input onBlur={updateRoutines} onChange={handleChange} name="title" value={props.routines} />
     <textarea onBlur={updateRoutines} onChange={handleChange} name="description" value={props.description} />
-    <button onClick={deleteRoutine}>Delete Routine</button>
+    <button onClick={deleteRoutines}>Delete Routine</button>
     </div>
     )
 }
