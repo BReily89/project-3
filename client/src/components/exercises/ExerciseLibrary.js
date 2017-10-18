@@ -63,8 +63,8 @@ class ExerciseLibrary extends Component {
      return (
          <div> 
              <h1>{this.state.name}'s Exercise Library</h1>
-             {this.state.exercise.map(exercise => {
-             return (<Link key={exercise._id} to={`/exercies/${exercise._id}/exercises`}>{exercise.name}</Link>)}) 
+            {/*} {this.state.exercise.map(exercise => { */}
+            {/*} return (<Link key={exercise._id} to={`/exercies/${exercise._id}/exercises`}>{exercise.name}</Link>)}) */}
              })}
              {this.state.exercises[0]}
 
