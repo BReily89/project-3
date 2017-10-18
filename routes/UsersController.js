@@ -11,6 +11,31 @@ router.get('/', async (req, res) => {
         res.send(err)
     }
 })
+
+router.post('/', async (req, res) => {
+    try {
+        const NewUser = new User(req.body.user)
+        const saved = await NewUser.save()
+        res.json(saved)
+    } catch (err) {
+        res.send(err)
+    }
+
+})
+
+router.patch('/:id', async (req, res) => {
+    try {
+        const updatedUser = req.body.user
+        const user = await User.findById(req.params.iid)
+        console.log(user)
+        user.personalRecord = updatedUser.personalRecord
+        const saved = await user.save()
+        res.json(saved)
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 router.get('/:id', async (req, res) => {
     try {
         const users = await User.findById(req.params.id)
@@ -27,25 +52,5 @@ router.delete('/:id', async (req, res) => {
     } catch (error) {
         console.log(error)
     }
-})
-router.patch('/:id', async (req, res) => {
-    try {
-        console.log('edit')
-        const user = await User.findByIdAndUpdate(req.params.id)
-        res.json(user)
-    } catch (error) {
-        console.log(error)
-    }
-})
-
-router.post('/', async (req, res) => {
-    try {
-        const NewUser = new User(req.body.user)
-        const saved = await NewUser.save()
-        res.json(saved)
-    } catch (err) {
-        res.send(err)
-    }
-
 })
 module.exports = router

@@ -5,13 +5,13 @@ import { Redirect } from 'react-router-dom'
 
 class UserPage extends Component {
     state={
-        user:{
-            userName:'',
-            password:'',
-            height:'',
-            weight:'',
-            personalRecord:''
-        },
+        user: {} ,
+            // userName:'',
+            // password:'',
+            // height:'',
+            // weight:'',
+            // personalRecord:''
+        // },
         redirectToUsers: false
     }
 
@@ -44,15 +44,20 @@ class UserPage extends Component {
         } catch(error) {
             console.log(error)
         }
-        
     }
     updateUser = async () => {
-        const userId =  this.props.match.params.is
+        const userId =  this.props.match.params.id
         const res = await axios.patch(`/api/users/${userId}`, {
             user: this.state.user,
         })
         this.setState({ user: res.data, redirectToLogin : true})
 
+    }
+    hanndleChange = (event) => {
+        const attribute = event.target.name
+        const clonedUser = {...this.state.user}
+        clonedUser[attribute] = event.target.value
+        this.setState({user: clonedUser})
     }
       render() {
           if (this.state.redirectToUsers) {
@@ -64,9 +69,15 @@ class UserPage extends Component {
                <div>{this.state.user.userName}</div>
                 <div>{this.state.user.height}</div>
                 <div>{this.state.user.weight}</div>
-                <div>{this.state.user.personalRecord}</div>
+
+                <input onBlur={this.updateUser}
+                onChange={this.handleChange}
+                name="personalRecord"
+                value={this.state.user.personalRecord} />
+               
+
             <button onClick={this.deleteUser}>Dude don't delete me</button>
-            <button onClick={this.updateUser}>How about a little updating dude</button>
+
             </div>
             
         );
