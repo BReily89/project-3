@@ -9,6 +9,7 @@ import Routines from './components/exercises/Routines'
 import ExerciseLibrary from './components/exercises/ExerciseLibrary'
 import NavBar from './components/NavBar'
 import UserPage from './components/login/UserPage'
+import CreateUser from './components/login/CreateUser'
 
  
 
@@ -22,6 +23,7 @@ class App extends Component {
 
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LogInPage} />
+            <Route exact path="/login/createuser" component={CreateUser} />
             <Route exact path="/login/:userId/userinfo" component={UserPage} />
             <Route exact path="/routines/:userId" component={Routines} /> 
             <Route exact path="/routines/:routineId/exercises" component={ExerciseLibrary} />

@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
     password: String,
     height: String,
     weight: Number,
-    personalRecords: String,
+    personalRecord: String,
     description: { type: String, default: 'New user' },
     createdAt: { type: Date, default: Date.now }
 })

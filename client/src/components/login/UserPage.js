@@ -10,7 +10,7 @@ class UserPage extends Component {
             password:'',
             height:'',
             weight:'',
-            personalRecords:''
+            personalRecord:''
         },
         redirectToUsers: false
     }
@@ -34,13 +34,6 @@ class UserPage extends Component {
     }
     
 
-    //make a new user and an onClick to create new user with data
-    // createNewUser = async () => {
-    //     const { userId } = this.props.match.params
-    //     const res = await axios.post(`api/users/${userId}`)
-    //     console.log(res.data)
-    //     this.setState({user: res.data})
-    // }
     deleteUser = async () => {
         try {
             console.log('in here')
@@ -53,13 +46,14 @@ class UserPage extends Component {
         }
         
     }
-    // updateUser = async (userId) => {
-    //     const { userId } =  this.props.match.params
-        
-    //     const clonedUser = {...this.state.user}
-    //     const user
-    // }  
-    
+    updateUser = async () => {
+        const userId =  this.props.match.params.is
+        const res = await axios.patch(`/api/users/${userId}`, {
+            user: this.state.user,
+        })
+        this.setState({ user: res.data, redirectToLogin : true})
+
+    }
       render() {
           if (this.state.redirectToUsers) {
               return <Redirect to={`/login`} />
@@ -70,9 +64,11 @@ class UserPage extends Component {
                <div>{this.state.user.userName}</div>
                 <div>{this.state.user.height}</div>
                 <div>{this.state.user.weight}</div>
-                <div>{this.state.user.personalRecords}</div>
+                <div>{this.state.user.personalRecord}</div>
             <button onClick={this.deleteUser}>Dude don't delete me</button>
+            <button onClick={this.updateUser}>How about a little updating dude</button>
             </div>
+            
         );
     }
 }

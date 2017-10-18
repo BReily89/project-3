@@ -19,11 +19,19 @@ router.get('/:id', async (req, res) => {
         res.send(err)
     }
 })
-
 router.delete('/:id', async (req, res) => {
     try {
         console.log('delete')
         const user = await User.findByIdAndRemove(req.params.id)
+        res.json(user)
+    } catch (error) {
+        console.log(error)
+    }
+})
+router.patch('/:id', async (req, res) => {
+    try {
+        console.log('edit')
+        const user = await User.findByIdAndUpdate(req.params.id)
         res.json(user)
     } catch (error) {
         console.log(error)

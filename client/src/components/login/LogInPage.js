@@ -22,15 +22,13 @@ class LogInPage extends Component {
             console.log
         }
     }
-   
-    
     render() {
         return (
             <div>
                 <h1>Log in</h1>
                 <h3>Select an existing user to view their stats</h3>
                 {this.state.users.map(user => {
-                    return (<Link key={user._id} to={`/login/${user._id}/userinfo`}>{user.userName}</Link>)
+                    return (<div><Link key={user._id} to={`/login/${user._id}/userinfo`}>{user.userName}</Link></div>)
                 })}
                 <SignUp />
             </div>
