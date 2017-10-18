@@ -22,6 +22,7 @@ class App extends Component {
 
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LogInPage} />
+            <Route exact path="/login/:userId/userinfo" component={UserPage} />
             <Route exact path="/routines/:userId" component={Routines} /> 
             <Route exact path="/routines/:routineId/exercises" component={ExerciseLibrary} />
           </Switch>

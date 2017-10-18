@@ -22,13 +22,16 @@ class LogInPage extends Component {
             console.log
         }
     }
+    createNewUser = async () => {
+        
+    }
     render() {
         return (
             <div>
                 <h1>Log in</h1>
                 <h3>Select an existing user to view their stats</h3>
                 {this.state.users.map(user => {
-                    return (<Link key={user._id} to={`/routines/${user._id}`}>{user.userName}</Link>)
+                    return (<Link key={user._id} to={`/login/${user._id}/userinfo`}>{user.userName}</Link>)
                 })}
                 <SignUp />
             </div>

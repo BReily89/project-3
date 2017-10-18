@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const users = await User.findById(req.params.id)
-        res.json(user)
+        res.json(users)
     } catch (err) {
         res.send(err)
     }
