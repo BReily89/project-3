@@ -2,7 +2,7 @@ const express = require('express')
 
 const router = express.Router()
 const { User } = require('../db/schema')
-
+ 
 router.get('/', async (req, res) => {
     try {
         const users = await User.find({})
@@ -18,6 +18,13 @@ router.get('/:id', async (req, res) => {
     } catch (err) {
         res.send(err)
     }
+})
+
+router.delete('/:id', async (req, res) => {
+    const user = await user.findById(req.params.id)
+    user.remove()
+    const saved = await user.save()
+    res.json(saved)
 })
 router.post('/', async (req, res) => {
     try {

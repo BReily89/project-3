@@ -8,6 +8,7 @@ import LogInPage from './components/login/LogInPage'
 import Routines from './components/exercises/Routines'
 import ExerciseLibrary from './components/exercises/ExerciseLibrary'
 import NavBar from './components/NavBar'
+import UserPage from './components/login/UserPage'
 
  
 
