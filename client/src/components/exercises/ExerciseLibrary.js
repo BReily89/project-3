@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-
 import Routines from './Routines'
 import Exercise from './Exercise'
+import { Link } from 'react-router-dom'
 
 
 
@@ -62,9 +62,10 @@ class ExerciseLibrary extends Component {
       console.log(this.state.exercises)
      return (
          <div> 
-             <h1>{this.state.name.map(exersice => {
-                 return (<Link key={exercise._id} to={`/exercises/${exercise._id}/exercises`}>{exercise.name}</Link>)
-             })}'s Exercise Library</h1>
+             <h1>{this.state.name}'s Exercise Library</h1>
+             {this.state.exercise.map(exercise => {
+             return (<Link key={exercise._id} to={`/exercies/${exercise._id}/exercises`}>{exercise.name}</Link>)}) 
+             })}
              {this.state.exercises[0]}
 
              
