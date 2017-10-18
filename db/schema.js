@@ -11,25 +11,14 @@ const userSchema = mongoose.Schema({
 })
 //refactor names to match seeds
 const exerciseSchema = mongoose.Schema({
-    nameOne: String,
-    repGoalOne: Number,
-    actualRepsOne: Number,
-    nameTwo: String,
-    repGoalTwo: Number,
-    actualRepsTwo: Number,
-    NameThree: String,
-    repGoalThree: Number,
-    actualRepsThree: Number,
-    nameFour: String,
-
-
-    
-    
+    name: String,
+    repGoal: Number,
+    actualReps: Number,
 })
 const routinesSchema = mongoose.Schema({
     name: String,
     bodyPart: String,
-    exercise: [exerciseSchema]
+    exercises: [exerciseSchema]
     
 })
 

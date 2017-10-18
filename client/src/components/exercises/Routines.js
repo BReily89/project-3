@@ -23,8 +23,8 @@ class Routines extends Component {
         console.log(this.state.routines)
         return (
             <div>
-                <h1>Routine Library </h1>
-               {this.state.routines.map(routine => {
+ {/* user name?*/}   <h1>{this.state.user}'s Exercise Library</h1>
+              {this.state.routines.map(routine => {
                    return (<Link key={routine._id} to={`/routines/${routine._id}/exercises`}>{routine.name}</Link>)
                })}
            

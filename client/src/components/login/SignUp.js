@@ -23,7 +23,7 @@ class SignUp extends Component {
             const res = await axios.post('/api/users', {
                 'user': this.state.newUser
             })
-            this.setState({redirectToExerciseLibrary: true, newUserId: res.data._id})
+            this.setState({redirectToExerciseLibrary: true, UserId: res.data._id})
         }
     render() {
 
