@@ -22,9 +22,8 @@ class LogInPage extends Component {
             console.log
         }
     }
-    createNewUser = async () => {
-        
-    }
+   
+    
     render() {
         return (
             <div>

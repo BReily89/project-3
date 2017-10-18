@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Login from './LogInPage'
+import { Redirect } from 'react-router-dom'
 
 class UserPage extends Component {
     state={
@@ -10,7 +11,8 @@ class UserPage extends Component {
             height:'',
             weight:'',
             personalRecords:''
-        }
+        },
+        redirectToUsers: false
     }
 
     //render user info
@@ -39,10 +41,18 @@ class UserPage extends Component {
     //     console.log(res.data)
     //     this.setState({user: res.data})
     // }
-    // deleteUser = async (userId) => {
-    //     const res = await axios.delete(`api/users${userId}`)
-    //     this.setState({user: res.data})
-    // }
+    deleteUser = async () => {
+        try {
+            console.log('in here')
+            const res = await axios.delete(`/api/users/${this.props.match.params.userId}`)
+            console.log('in here')
+            
+            this.setState({redirectToUsers: true})
+        } catch(error) {
+            console.log(error)
+        }
+        
+    }
     // updateUser = async (userId) => {
     //     const { userId } =  this.props.match.params
         
@@ -51,10 +61,17 @@ class UserPage extends Component {
     // }  
     
       render() {
+          if (this.state.redirectToUsers) {
+              return <Redirect to={`/login`} />
+          }
         return (
             <div>
-               Test
-               {this.state.user.userName}
+               
+               <div>{this.state.user.userName}</div>
+                <div>{this.state.user.height}</div>
+                <div>{this.state.user.weight}</div>
+                <div>{this.state.user.personalRecords}</div>
+            <button onClick={this.deleteUser}>Dude don't delete me</button>
             </div>
         );
     }
