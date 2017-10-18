@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+
 import Routines from './Routines'
 import Exercise from './Exercise'
 
@@ -8,13 +9,20 @@ import Exercise from './Exercise'
 
 class ExerciseLibrary extends Component {
     state = {
-            exercises: []        
+            exercises: [],
+            name: ''        
     
 }
     async componentWillMount() {
-        const exerciseId = this.props.match.params.id
+        console.log(this)
+        const exerciseId = this.props.match.params.routineId
+        // console.log(exerciseId.exercise)
         const res = await axios.get(`/api/routines/${exerciseId}`)
-        this.setState({ exercises: res.data })
+        this.setState({ 
+            exercises: res.data,
+            name: res.data.name
+         })
+    
         console.log(res.data)
         
     }
@@ -51,15 +59,25 @@ class ExerciseLibrary extends Component {
 
 
   render() {
+      console.log(this.state.exercises)
      return (
-    <div>
-    <h1>{}'s Exercise Library</h1>
-    <button onClick={this.createNewRoutine}>New Routine</button>
-        <Exercise exercises={this.state.exercises} 
-        handleChange={this.handleChange}
-        deleteRoutine={this.deleteRoutine}
-        updateRoutine={this.updateRoutine}/>
-</div>
+         <div> 
+             <h1>{this.state.name.map(exersice => {
+                 return (<Link key={exercise._id} to={`/exercises/${exercise._id}/exercises`}>{exercise.name}</Link>)
+             })}'s Exercise Library</h1>
+             {this.state.exercises[0]}
+
+             
+
+         </div>
+//     <div>
+//     <h1>{}'s Exercise Library</h1>
+//     <button onClick={this.createNewRoutine}>New Routine</button>
+//         <Exercise exercises={this.state.exercises} 
+//         handleChange={this.handleChange}
+//         deleteRoutine={this.deleteRoutine}
+//         updateRoutine={this.updateRoutine}/>
+// </div>
 
 
  );

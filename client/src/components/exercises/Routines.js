@@ -20,6 +20,7 @@ class Routines extends Component {
         }
         }
     render () {
+        console.log(this.state.routines)
         return (
             <div>
                 <h1>Routine Library </h1>
