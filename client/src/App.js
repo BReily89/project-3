@@ -21,7 +21,7 @@ class App extends Component {
          <NavBar /> 
           <Switch>
 
-            <Route exact path="/" component={HomePage} />
+            <Route exact path="/" component={LogInPage} />
             <Route exact path="/login" component={LogInPage} />
             <Route exact path="/login/createuser" component={CreateUser} />
             <Route exact path="/login/:userId/userinfo" component={UserPage} />

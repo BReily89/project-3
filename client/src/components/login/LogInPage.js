@@ -5,6 +5,10 @@ import SignUp from './SignUp'
 import styled from 'styled-components'
 import { Redirect } from 'react-router-dom'
 
+const Button = styled.div`
+font-size: 40px;
+`
+
 
 
 
@@ -12,6 +16,7 @@ const Title = styled.div`
 align-items:center;
 font-size: 40px;
 align-self: auto;
+
 `
 
 class LogInPage extends Component {
@@ -37,12 +42,14 @@ class LogInPage extends Component {
         return (
             <div>
                 <Title>Log in or</Title>
+                
                 <h3>Select an existing user to view their stats</h3>
                 {this.state.users.map(user => {
                     return (<div><Link key={user._id} to={`/login/${user._id}/userinfo`}>{user.userName}</Link></div>)
                 })}
                 {/* <Link to={'./ExerciseLibrary'} /> */}
-                <SignUp />
+               <Button><button> <Link to={`/login/createuser`}>Create User</Link></button></Button>
+               
             </div>
         );
     }

@@ -24,7 +24,7 @@ class CreateUser extends Component {
     }
     render() {
         if (this.state.redirectToUsers) {
-            return <Redirect to={`/users/${this.state.userId}/login`} />
+            return <Redirect to={`/login`} />
         }
         return (
             <div>
@@ -51,7 +51,7 @@ class CreateUser extends Component {
                     <div>
                         <label htmlFor="personalRecords">personal records</label>
                     <input
-                        onChange={this.handleChange} name="personalRecords"
+                        onChange={this.handleChange} name="personalRecord"
                         type="text" value={this.state.users.personalRecords} />
                         </div>
                     <button>Submit</button>
