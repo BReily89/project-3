@@ -26,8 +26,11 @@ router.post('/', async (req, res) => {
 router.patch('/:id', async (req, res) => {
     try {
         const updatedUser = req.body.user
-        const user = await User.findById(req.params.iid)
+        const user = await User.findById(req.params.id)
         console.log(user)
+        user.userName = updatedUser.userName
+        user.height = updatedUser.height
+        user.weight = updatedUser.weight
         user.personalRecord = updatedUser.personalRecord
         const saved = await user.save()
         res.json(saved)
@@ -35,7 +38,6 @@ router.patch('/:id', async (req, res) => {
         console.log(error)
     }
 })
-
 router.get('/:id', async (req, res) => {
     try {
         const users = await User.findById(req.params.id)
