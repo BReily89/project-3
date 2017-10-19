@@ -61,7 +61,7 @@ class UserPage extends Component {
         }
     }
     updateUser = async () => {
-        const userId =  this.props.match.params.id
+        const userId =  this.props.match.params.userId
         const res = await axios.patch(`/api/users/${userId}`, {
             user: this.state.user,
         })
