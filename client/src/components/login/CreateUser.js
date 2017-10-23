@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
+
+const Create = styled.div`
+display: flex;
+flex-direction: column;
+align-content: center;
+`
+
 class CreateUser extends Component {
     state = {
         users: [],
@@ -36,6 +44,7 @@ class CreateUser extends Component {
                             type="text" value={this.state.users.userName} />
 
                     </div>
+                    <Create>
                     <div>
                         <label htmlFor="height">height</label>
                         <input
@@ -55,7 +64,9 @@ class CreateUser extends Component {
                         type="text" value={this.state.users.personalRecords} />
                         </div>
                     <button>Submit</button>
+               </Create>
                 </form>
+            
             </div>
         );
     }

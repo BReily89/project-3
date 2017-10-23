@@ -20,7 +20,7 @@ const NavBar = () => {
     return (
         <Nav>
         <div>
-            <Home to="/">Home</Home>
+            <Home to="/">House of Gainz</Home>
         </div>
         <div>
             <Link to="/exerciseLibrary">Exercise Library</Link>

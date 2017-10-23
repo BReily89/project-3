@@ -7,16 +7,26 @@ import { Redirect } from 'react-router-dom'
 
 const Button = styled.div`
 font-size: 40px;
+display: flex;
+flex-direction: column;
+align-content: center;
+font-size: 20px;
 `
 
 
 
 
 const Title = styled.div`
+display: flex;
+flex-direction: column;
 align-items:center;
 font-size: 40px;
 align-self: auto;
-
+`
+const Heading = styled.div`
+display: flex;
+flex-direction: column;
+align-items:center;
 `
 
 class LogInPage extends Component {
@@ -43,7 +53,7 @@ class LogInPage extends Component {
             <div>
                 <Title>Log in or</Title>
                 
-                <h3>Select an existing user to view their stats</h3>
+                <Heading>Select an existing user to view their stats/routines</Heading>
                 {this.state.users.map(user => {
                     return (<div><Link key={user._id} to={`/login/${user._id}/userinfo`}>{user.userName}</Link></div>)
                 })}

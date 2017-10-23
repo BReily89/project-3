@@ -7,7 +7,7 @@ class HomePage extends Component {
         return (
             <div>
                 <h1>
-                    HomePage
+                    Lazy-Lifter
                 </h1>
             </div>
 

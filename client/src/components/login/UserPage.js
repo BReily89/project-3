@@ -16,6 +16,9 @@ background: linear-gradient(352.8749836510982deg, rgba(255,255,255,0) 0, rgba(24
 const button = styled.div`
 padding: 50px;
 `
+const Edit = styled.div`
+
+`
 class UserPage extends Component {
     state={
         user: {} ,
@@ -95,7 +98,7 @@ class UserPage extends Component {
             <button onClick={this.deleteUser}>Dude don't delete me</button>
             </Swole>
             <div>
-    
+    <Edit>
                  <h2><b>Edit User</b></h2>
           <br/>
           userName: <input onChange={this.handleChange} name="userName" value={this.state.user.userName} />
@@ -111,7 +114,8 @@ class UserPage extends Component {
         </div>
         <button onClick={this.deleteUser}>Delete User</button>
         <button onClick={this.updateUser}>Save Changes</button>
-            </div></div>
+        </Edit>    </div> </div>
+            
         
         );
     }
