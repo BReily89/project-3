@@ -5,25 +5,31 @@ import SignUp from './SignUp'
 import styled from 'styled-components'
 import { Redirect } from 'react-router-dom'
 
+const Page = styled.div`
+background-image: url(https://i.imgur.com/avN7Oq8.png);
+height: 100vh;
+background-size: cover;
+`
 const Button = styled.div`
 font-size: 40px;
 display: flex;
 flex-direction: column;
-align-content: center;
 font-size: 20px;
+align-items: center;
 `
-
-
-
 
 const Title = styled.div`
 display: flex;
 flex-direction: column;
 align-items:center;
+color:white;
 font-size: 40px;
 align-self: auto;
+text-shadow: 2px 2px 0px black;
 `
 const Heading = styled.div`
+text-shadow: 2px 2px 0px black;
+color: white;
 display: flex;
 flex-direction: column;
 align-items:center;
@@ -51,14 +57,16 @@ class LogInPage extends Component {
     render() {
         return (
             <div>
+                <Page>
                 <Title>Log in or</Title>
                 
                 <Heading>Select an existing user to view their stats/routines</Heading>
                 {this.state.users.map(user => {
                     return (<div><Link key={user._id} to={`/login/${user._id}/userinfo`}>{user.userName}</Link></div>)
                 })}
-                {/* <Link to={'./ExerciseLibrary'} /> */}
+                <Link to={'./ExerciseLibrary'} />
                <Button><button> <Link to={`/login/createuser`}>Create User</Link></button></Button>
+               </Page>
                
             </div>
         );

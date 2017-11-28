@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import styled from 'styled-components'
+
+const Page = styled.div`
+background-image: url(https://i.imgur.com/DokBQBq.jpg);
+`
 
 class SignUp extends Component {
         state = {
@@ -8,7 +13,7 @@ class SignUp extends Component {
                 password: ''
             },
             redirectToRoutines: false,
-            newUerId: ''
+            newUserId: ''
         }
         handleChange = (event) => {
             const attribute = event.target.userName
@@ -31,7 +36,7 @@ class SignUp extends Component {
             return <redirect to={'/exercises/${this.state.newUSerId'} />
         }
         return (
-            <div>
+            <Page>
                 <h1>Sign Up</h1>
                 <form onSubmit={this.handleSubmit}>
             <div>
@@ -49,7 +54,8 @@ class SignUp extends Component {
             </div>
             <button>Sign Up</button>
             </form>
-            </div>
+            </Page>
+           
         )
     }
 }

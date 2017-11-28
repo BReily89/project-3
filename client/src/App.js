@@ -10,8 +10,7 @@ import ExerciseLibrary from './components/exercises/ExerciseLibrary'
 import NavBar from './components/NavBar'
 import UserPage from './components/login/UserPage'
 import CreateUser from './components/login/CreateUser'
-
- 
+import styled from 'styled-components'
 
 class App extends Component {
   render() {

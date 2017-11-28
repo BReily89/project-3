@@ -4,9 +4,7 @@ import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Create = styled.div`
-display: flex;
-flex-direction: column;
-align-content: center;
+background-image: url(https://i.imgur.com/DokBQBq.jpg);
 `
 
 class CreateUser extends Component {
