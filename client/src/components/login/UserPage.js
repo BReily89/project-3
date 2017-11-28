@@ -105,16 +105,16 @@ class UserPage extends Component {
     <Edit>
                  <h2><b>Edit User</b></h2>
           <br/>
-          userName: <input onChange={this.handleChange} name="userName" value={this.state.user.userName} />
+          User Name: <input onChange={this.handleChange} name="userName" value={this.state.user.userName} />
         
         <div>
-          height: <input onChange={this.handleChange} name="height" value={this.state.user.height} />
+          Height: <input onChange={this.handleChange} name="height" value={this.state.user.height} />
         </div>
         <div>
-          weight:<input onChange={this.handleChange} name="weight" value={this.state.user.weight} />
+          Weight:<input onChange={this.handleChange} name="weight" value={this.state.user.weight} />
         </div>
         <div>
-        personalRecord:<input onChange={this.handleChange} name="personalRecord" value={this.state.user.personalRecord} />
+        Personal Record:<input onChange={this.handleChange} name="personalRecord" value={this.state.user.personalRecord} />
         </div>
         <button onClick={this.deleteUser}>Delete User</button>
         <button onClick={this.updateUser}>Save Changes</button>

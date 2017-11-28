@@ -20,7 +20,9 @@ color: white;
 `
 const Link2 = styled.div`
 color: white;
-
+`
+const Link3 = styled.div`
+color: white;
 `
 
 
@@ -36,6 +38,8 @@ const NavBar = () => {
         <Link2>
             <a href to="/login">Login</a>
         </Link2>
+        <Link3> <a href to="/HomePage">Back</a>
+        </Link3>
         </Nav>
     )
 }
