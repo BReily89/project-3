@@ -34,6 +34,14 @@ display: flex;
 flex-direction: column;
 align-items:center;
 `
+const User = styled.div`
+color: white;
+text-shadow: 2px 2px 0px black;
+a{
+    color:white;
+    display: flex;
+}
+`
 
 class LogInPage extends Component {
     state = {
@@ -61,9 +69,9 @@ class LogInPage extends Component {
                 <Title>Log in or</Title>
                 
                 <Heading>Select an existing user to view their stats/routines</Heading>
-                {this.state.users.map(user => {
-                    return (<div><Link key={user._id} to={`/login/${user._id}/userinfo`}>{user.userName}</Link></div>)
-                })}
+               <User> {this.state.users.map(user => {
+                    return (<Link key={user._id} to={`/login/${user._id}/userinfo`}>{user.userName}</Link>)
+                })}</User>
                 <Link to={'./ExerciseLibrary'} />
                <Button><button> <Link to={`/login/createuser`}>Create User</Link></button></Button>
                </Page>
