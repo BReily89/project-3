@@ -25,6 +25,7 @@
   "homepage": "https://github.com/BReily89/project-3#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
     "concurrently": "^3.5.0",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
