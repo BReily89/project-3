@@ -40,6 +40,7 @@ text-shadow: 2px 2px 0px black;
 a{
     color:white;
     display: flex;
+    align-content: center;
 }
 `
 

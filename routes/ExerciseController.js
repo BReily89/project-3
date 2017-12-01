@@ -1,18 +1,19 @@
 const express = require('express')
 const router = express.Router({ mergeParams: true })
-const { Routines, Exercises } = require('../db/schema')
+const { Routines, Exercise } = require('../db/schema')
 
 router.get('/', async (req, res) => {
     try {
-        const exercises = await Exercises.findById(request.params.exerciseId)
-        res.json(routines.exercises)
+        const routines = await Routines.findById(request.params.id)
+        const exercise = routines.exercises
+        res.json(exercise)
     } catch (err) {
         res.send(err)
     }
 })
 router.post('/', async (req, res) => {
     try {
-        const newExercise = new Exercises(req.body.exercises)
+        const newExercise = new Exercise(req.body.exercise)
         const saved = await newExercise.save()
         res.json(saved)
     } catch (err) {
@@ -21,4 +22,4 @@ router.post('/', async (req, res) => {
 })
 
 
-export default ExerciseController;
+module.exports = router;

@@ -18,14 +18,14 @@ const exerciseSchema = mongoose.Schema({
 const routinesSchema = mongoose.Schema({
     name: String,
     bodyPart: String,
-    exercises: [exerciseSchema]
+    exercise: [exerciseSchema]
     
 })
 
 
 const User = mongoose.model('User', userSchema)
-const Routines = mongoose.model('Routine', routinesSchema)
 const Exercise = mongoose.model('Exercises', exerciseSchema)
+const Routines = mongoose.model('Routines', routinesSchema)
 
 
 

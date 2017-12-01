@@ -33,12 +33,13 @@ const NavBar = () => {
             <Home to="/">House of Gainz</Home>
         </div>
         <Link1>
-            <a href to="/exerciseLibrary">Exercise Library</a>
+           <button><Link to={'/exerciseLibrary'}>Exercise Library</Link></button>
         </Link1>
         <Link2>
             <a href to="/login">Login</a>
         </Link2>
-        <Link3> <a href to="/HomePage">Back</a>
+        <Link3> 
+        <button><Link to={'/LogInPage'}>Back</Link></button>
         </Link3>
         </Nav>
     )

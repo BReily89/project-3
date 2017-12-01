@@ -20,6 +20,7 @@ background-size: cover;
 border: 1px solid white;
 text-shadow: 2px 2px 0px black;
 color:white;
+align-content: center;
 
 
 `
