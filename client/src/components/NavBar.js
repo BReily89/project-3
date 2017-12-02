@@ -33,7 +33,7 @@ const NavBar = () => {
             <Home to="/">House of Gainz</Home>
         </div>
         <Link1>
-           <button><Link to={'/exerciseLibrary'}>Exercise Library</Link></button>
+           <button><Link to={'/ExerciseLibrary'}>Exercise Library</Link></button>
         </Link1>
         <Link2>
             <a href to="/login">Login</a>

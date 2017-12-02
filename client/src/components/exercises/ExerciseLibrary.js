@@ -13,6 +13,21 @@ class ExerciseLibrary extends Component {
             name: ''        
     
 }
+componentWillMount () {
+    this.getRoutines()
+}
+// getRoutines = async () => {
+//     try {
+//         const {routineId} = this.props.match.params
+//         console.log(ExerciseLibrary)
+//         const res = await axios.get(`/api/routines/${routineId}`)
+//         console.log(res)
+//         this.setState({ user: res.data })
+//         console.log(this.state.user)
+//     }catch (err) {
+//         console.log
+//     }
+// }
     async componentWillMount() {
         console.log(this)
         const exerciseId = this.props.match.params.routineId

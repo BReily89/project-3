@@ -25,7 +25,6 @@ app.use(express.static(`${__dirname}/client/build/`));
 app.use(bodyParser.json());
 app.use('/api/users', UsersController)
 app.use('/api/routines', RoutinesController)
-// app.use('api/routines/:id/exercises')
 app.use('/api/routines/:id/exercise', ExerciseController)
 app.get('/', (req,res) => {
 	res.sendFile(`${__dirname}/client/build/index.html`)
